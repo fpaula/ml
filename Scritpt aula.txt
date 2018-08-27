@@ -1,0 +1,69 @@
+### Descriptive analysis
+setwd("C:/Users/ander/Documents/Pessoal/Aula/Aula Machine Learning/Dados")
+
+
+
+https://goo.gl/TUi7yw
+
+
+dados <- read.table("base_gastos_cartao.csv", 
+                    sep=";",
+                    header=T)
+
+head(dados)
+
+
+summary(dados)
+table(dados$Segmento)
+quantile(dados$Gastos_Cartao,
+         probs = c(0.01, 0.05, 0.1, 0.9, 0.95, 0.99))
+quantile(dados$Idade,
+         probs = c(0.01, 0.05, 0.1, 0.9, 0.95, 0.99))
+quantile(dados$Renda,
+         probs = c(0.01, 0.05, 0.1, 0.9, 0.95, 0.99))
+quantile(dados$Impostos,
+         probs = c(0.01, 0.05, 0.1, 0.9, 0.95, 0.99))
+
+vars <- names(dados)[1:4]
+for(i in vars){
+  par(mfrow=c(2,1))
+  hist(dados[,i], breaks = 20, main=paste0("Histograma - ", i),
+       xlab=i, ylab="Frequêcia", col="dark blue")
+  boxplot(dados[,i], main=paste0("Boxplot - ", i),
+          ylab=i, col="dark red")
+}
+
+vars <- names(dados)
+for(i in vars){
+  cat(paste0(i, " - número de observações missing: ",
+             sum(is.na(dados[,i]))),"\n")
+}
+
+
+# vars <- names(dados)[1:4]
+cor(dados[,vars])
+
+library(car)
+scatterplotMatrix(~ Gastos_Cartao + Idade + Renda + Impostos, 
+                  data=dados, 
+                  smooth=FALSE,
+                  reg.line=FALSE, ellipse=FALSE,
+                  diagonal="none", pch=16)
+
+scatterplotMatrix(~ Gastos_Cartao + Idade + Renda +
+                    Impostos, data=dados, smooth=FALSE,
+                  reg.line=FALSE, ellipse=FALSE,
+                  groups=as.factor(dados$Segmento), 
+                  diagonal="none")
+
+plot(dados$Idade, dados$Gastos_Cartao, pch=16, main="GrÃ¡fico de dispersÃ£o",
+     xlab = "Idade", ylab="Gastos CartÃ£o", ylim=c(200,1000))
+
+for(i in names(dados)[1:4]){
+  boxplot(dados[,i] ~ as.factor(dados$Segmento), main=paste0("Boxplot - ",i),
+          xlab="Segmento", ylab=i, col="dark red")
+}
+
+install.packages("rgl")
+library(rgl)
+plot3d(dados$Gastos_Cartao, dados$Renda, dados$Idade, col="red", size=5)

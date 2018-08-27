@@ -1,0 +1,28 @@
+Regressão logistica permite estimar a probabilidadede uma resposta categórica (sempre binario)
+
+
+Não usamos regressao linear para resposta categorica
+
+probabilidade é um valor entre zero e um
+
+não pode ter padrão nos erros
+
+multicolinearidade
+
+semente aleatória: set.seed(123)
+
+separar as bases em duas ou 3.
+construir, validar e a terceira usa como score do modelo.
+
+variável target é o resultado
+
+criar dummies
+
+p.value é importante para verificar se vale a pena considerar uma variável (quanto menor melhor)
+
+matriz de confusão
+
+
+Curva ROC / AOC
+
+textminer

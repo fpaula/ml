@@ -1,8 +1,8 @@
-setwd("~/curso-machine-learning")
+setwd("/Users/fpaula/Projects/curso-fia")
 
 if (!require("dplyr")){
   install.packages("dplyr", dependencies = TRUE)
-  print("entrou")
+  print("instalou dplyr")
 }
 
 library(dplyr)
@@ -113,3 +113,6 @@ dim(df) # quantidade de linhas e colunas
 x <- c(17,21,8,4,9,10,11)
 x[x >= 10] <- 0
 x
+
+MyData <- read.csv(file="/Users/fpaula/Projects/curso-fia/teste.csv", header=TRUE, sep=",")
+View(MyData)
