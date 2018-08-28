@@ -1,0 +1,41 @@
+estudar:
+  regressao linear
+    Regressao linear de ML é um pouco diferente da tradicional pq os objetivos são diferentes.
+    Na estatística queremos entender e no ML queremos prever.
+    Por exemplo: não usamos muito Pvalor no ML mas usamos bastante em estatística.
+  regressao logistica
+  redes neurais
+  fazer um exercício do Kaggle
+  arvore de decisao
+
+
+modelo nao supervisionado (modelos de cluster). só tem variável explicativa.
+online learning = aprender com novos dados automaticamente
+machine learning é fixo (tem que rodar toda vez que chegar novos dados)
+deep learning é um algoritimo complexo (tem taxa de convergencia (learning curve) mais lenta, precisa de mais dados)
+
+X = variaveis explicativas, features ou input
+Y = variável resposta (target ou output)
+E = erro (definir erro nesse contexto).
+f = função (algoritimo)
+
+Y = f(X1, X2, X3, ...) + E
+
+Overfit = ajustar demais os dados a ponto de eles só funcionarem com os dados de treino.
+O ideal é que o modelo funcione bem com dados novos.
+
+Objetivo do ML = previsão
+
+
+Base de treino
+Base de validação
+Base de teste
+Base real
+
+Para ver se uma variável é importante devemos tira-la e ver se o modelo piora muito.
+
+treino, validação, teste
+
+y = beta zero + beta um xis um + ... + beta p xis p.
+beta zero é constante
+beta um é um intercepto em relacao a x1 (se variar o x1 quanto varia o Y)
